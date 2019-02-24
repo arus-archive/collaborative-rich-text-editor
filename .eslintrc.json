@@ -1,0 +1,12 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-plusplus": [2, {
+      "allowForLoopAfterthoughts": true
+    }]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "./common.tsconfig",
+  "compilerOptions": {
+    "outDir": "../build/prod/server"
+  }
+}

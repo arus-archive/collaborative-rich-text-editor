@@ -1,0 +1,51 @@
+body {
+  padding: 15px;
+  font-family: Roboto, sans-serif;
+}
+
+article {
+  width: 100%;
+  display: inline-block;
+}
+
+#users-panel {
+  margin-top: 5px;
+}
+
+#users-panel p {
+  line-height: 0;
+}
+
+#user-panel-online {
+  display: none;
+}
+
+#users-panel-list {
+  display: inline-block;
+}
+
+.users-panel-label {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  line-height: 18px;
+  width: auto;
+}
+
+#users-panel .user-name, #users-panel-current {
+  display: inline-block;
+  padding: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  margin: 0 5px;
+  font-weight: normal;
+}
+
+.ql-container {
+  min-height: 300px;
+}
+
+#status {
+  display: none;
+}
