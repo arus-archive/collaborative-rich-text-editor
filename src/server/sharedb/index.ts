@@ -3,13 +3,13 @@ import * as WebSocket from "ws";
 
 import * as RichText from "rich-text";
 import * as ShareDB from "sharedb";
-//import ShareDBMongo = require("sharedb-mongo");
+// import ShareDBMongo = require("sharedb-mongo");
 
 import * as uuid from "uuid";
 
 import IExtWebSocket from "../common/IExtWebSocket";
 import pingWebSockets from "../common/pingWebSockets";
-//import CONFIG from "../config";
+// import CONFIG from "../config";
 import logger from "../logger";
 
 ShareDB.types.register(RichText.type);

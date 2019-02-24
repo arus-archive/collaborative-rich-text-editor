@@ -112,22 +112,21 @@ function UserCursors(localUser, localDocument) {
       removedConnections: [],
     };
     // Find removed connections
-    for (let i = 0; i < connections.length; i++) {
-      const findConnectionCondition = connection => connection.id === connections[i].id;
-
-      const testConnection = data.connections.find(findConnectionCondition);
+    connections.forEach((connection) => {
+      const testConnection = data.connections
+        .find(savedConnection => savedConnection.id === connection.id);
       if (!testConnection) {
-        detail.removedConnections.push(connections[i]);
-        debugInfo(`Cursors - User disconnected:${connections[i]}`);
+        detail.removedConnections.push(connection);
+        debugInfo(`Cursors - User disconnected:${connection}`);
 
         // If the source connection was removed set it
-        if (data.sourceId === connections[i]) {
-          detail.source = connections[i];
+        if (data.sourceId === connection) {
+          detail.source = connection;
         }
-      } else if (testConnection.user.login && !connections[i].user.login) {
+      } else if (testConnection.user.login && !connection.user.login) {
         debugInfo(`Cursors - User ${testConnection.id} set username:${testConnection.user.login}`);
       }
-    }
+    });
 
     const reportNewConnections = !(
       connections.length === 0 && data.connections.length !== 0
@@ -136,17 +135,18 @@ function UserCursors(localUser, localDocument) {
       debugInfo(`Cursors - Initial list of connections received from server:${data.connections}`);
     }
 
-    for (let i = 0; i < data.connections.length; i++) {
+    data.connections.forEach((connection) => {
       // Set the source if it's still on active connections
-      if (data.sourceId === data.connections[i].id) {
-        detail.source = data.connections[i];
+      if (data.sourceId === connection.id) {
+        detail.source = connection;
       }
 
-      const findConnectionCondition = connection => connection.id === data.connections[i].id;
+      const findConnectionCondition = savedConnection => savedConnection.id === connection.id;
       if (reportNewConnections && !connections.find(findConnectionCondition)) {
-        debugInfo(`Cursors - User connected:${data.connections[i]}`);
+        debugInfo(`Cursors - User connected:${connection}`);
       }
-    }
+    });
+
     connections.length = 0;
     connections.push(...data.connections);
     this.onCursorsUpdate(detail);

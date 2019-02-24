@@ -27,7 +27,6 @@ const editor = new Editor('#editor');
  * @param {module:document.Document} document
  */
 function startApplication(user, document) {
-  console.log(document)
   updateCaption(document.title);
 
   editor.enable();

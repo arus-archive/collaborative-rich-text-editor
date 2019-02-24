@@ -2,23 +2,21 @@ import axios from "axios";
 import * as express from "express";
 import {get} from "lodash";
 
-import * as faker from 'faker';
-
+import * as faker from "faker";
 
 import IDocument from "../common/IDocument";
 import IUser from "../common/IUser";
 import CONFIG from "../config";
 import logger from "../logger";
 
-
 /**
- *
+ * In memory documents map
  * @type {Map<number, IDocument>}
  */
 const testDocuments = new Map<number, IDocument>();
 
 /**
- *
+ * In memory users map
  * @type {Map<string, IUser>}
  */
 const testUsers = new Map<string, IUser>();
@@ -42,18 +40,18 @@ const initializationRoute: express.RequestHandler = (req, res) => {
         if (!document) {
             document = {
                 id: documentId,
-                title: 'Document about ' + faker.commerce.productName(),
+                title: "Document about " + faker.commerce.productName(),
             };
             testDocuments.set(documentId, document);
         }
         res.json({
             document,
-            message: 'Initialized successful',
-            status: 'success',
+            message: "Initialized successful",
+            status: "success",
             user,
         });
 
-        // todo: use external service to initialize collaboration document
+        // external service to initialize collaboration document
         // axios.get(CONFIG.INITIALIZE_END_POINT + documentId, {
         //   headers: {
         //     Cookie: `TOKEN=${token}`,
