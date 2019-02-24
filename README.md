@@ -38,3 +38,7 @@ Preferences -> Languages & Frameworks -> TypeScript -> Options:
 
 
 # How to use with MongoDB
+
+Uncomment code in files: src/server/config.ts and src/server/sharedb/index.ts  
+
+To change a MongoDB connection string set MONGODB_URI in .env file  
