@@ -2,10 +2,13 @@
   "compilerOptions": {
     "target": "ES2016",
     "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
     "strict": true,
     "typeRoots": [
       "../src/@types"
-    ]
+    ],
+    "pretty": true
   },
   "include": [
     "../src/server/**/*"

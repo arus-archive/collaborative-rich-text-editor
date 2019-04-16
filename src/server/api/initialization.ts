@@ -13,13 +13,13 @@ import logger from "../logger";
  * In memory documents map
  * @type {Map<number, IDocument>}
  */
-const testDocuments = new Map<number, IDocument>();
+const documents = new Map<number, IDocument>();
 
 /**
  * In memory users map
  * @type {Map<string, IUser>}
  */
-const testUsers = new Map<string, IUser>();
+const users = new Map<string, IUser>();
 
 const initializationRoute: express.RequestHandler = (req, res) => {
     const {token, documentId: documentId} = req.body.body;
@@ -27,22 +27,22 @@ const initializationRoute: express.RequestHandler = (req, res) => {
     if (!token || !documentId) {
         res.sendStatus(404);
     } else {
-        let user = testUsers.get(token);
+        let user = users.get(token);
         if (!user) {
             user = {
                 firstName: faker.name.firstName(),
                 lastName: faker.name.lastName(),
                 login: faker.internet.userName(),
             };
-            testUsers.set(token, user);
+            users.set(token, user);
         }
-        let document = testDocuments.get(documentId);
+        let document = documents.get(documentId);
         if (!document) {
             document = {
                 id: documentId,
                 title: "Document about " + faker.commerce.productName(),
             };
-            testDocuments.set(documentId, document);
+            documents.set(documentId, document);
         }
         res.json({
             document,
