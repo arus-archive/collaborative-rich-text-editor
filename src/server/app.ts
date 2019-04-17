@@ -1,5 +1,5 @@
-import http from "http";
-import url from "url";
+import * as http from "http";
+import * as url from "url";
 
 import CONFIG from "./config";
 
