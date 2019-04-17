@@ -1,11 +1,27 @@
-body {
-  padding: 15px;
+html, body {
   font-family: Roboto, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  min-width: 420px;
+  min-height: 510px;
 }
 
-article {
-  width: 100%;
-  display: inline-block;
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 15px;
+}
+
+aside, footer {
+  padding: 15px;
 }
 
 #users-panel {
@@ -43,7 +59,7 @@ article {
 }
 
 .ql-container {
-  min-height: 300px;
+  min-height: 150px;
 }
 
 #status {
