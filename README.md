@@ -1,6 +1,9 @@
 # Collaborative Rich Text Editor
 
 Collaborative rich text editor based on Quill (with quill-cursors module) and ShareDB  
+
+![Demonstration](demonstration.gif)
+
 Inspired by https://github.com/pedrosanta/quill-sharedb-cursors
 
 ## Application configuration:
