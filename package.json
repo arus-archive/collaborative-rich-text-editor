@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@teamwork/websocket-json-stream": "^1.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "font-awesome": "^4.7.0",
